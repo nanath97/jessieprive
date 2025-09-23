@@ -3,18 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>Redirection...</title>
+  <!-- Redirection automatique après 3 secondes -->
   <meta http-equiv="refresh" content="3; URL=https://t.me/mini_jessie_bot">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      background-color: #000000;
+      background: #000;
       color: orange;
       font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 20%;
+      margin: 0;
+      padding: 40px 20px;
     }
     h1 {
       font-size: 2em;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 10px 0;
     }
     a {
       color: orange;
@@ -22,24 +30,39 @@
     }
     #countdown {
       font-weight: bold;
-      font-size: 1.5em;
+      font-size: 1.4em;
+    }
+    .video {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
     }
   </style>
 </head>
 <body>
-  <h1>Vous allez être redirigé vers Telegram...</h1>
-  <p>Redirection automatique dans <span id="countdown">3</span> secondes.<br>
-     Si rien ne se passe, <a href="https://t.me/mini_jessie_bot">cliquez ici</a>.
-  </p>
+  <h1>Vous allez être redirigé vers Telegram…</h1>
+  <p>Redirection automatique dans <span id="countdown">3</span> secondes.</p>
+  <p>Si rien ne se passe, <a href="https://t.me/mini_jessie_bot">cliquez ici</a>.</p>
+
+  <!-- Intégration Imgur -->
+  <div class="video">
+    <blockquote class="imgur-embed-pub" lang="en" data-id="a/Cz30I93" data-context="false">
+      <a href="//imgur.com/a/Cz30I93"></a>
+    </blockquote>
+    <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+  </div>
 
   <script>
+    // Compte à rebours
     let count = 3;
-    const countdownEl = document.getElementById("countdown");
+    const el = document.getElementById("countdown");
     const timer = setInterval(() => {
       count--;
-      countdownEl.textContent = count;
-      if (count === 0) {
+      if (count <= 0) {
         clearInterval(timer);
+        el.textContent = 0;
+      } else {
+        el.textContent = count;
       }
     }, 1000);
   </script>

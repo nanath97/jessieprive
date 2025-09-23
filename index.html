@@ -3,9 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>Redirection...</title>
-  <!-- Redirection automatique après 3 secondes -->
-  <meta http-equiv="refresh" content="3; URL=https://t.me/mini_jessie_bot">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -41,7 +38,7 @@
 </head>
 <body>
   <h1>Vous allez être redirigé vers Telegram…</h1>
-  <p>Redirection automatique dans <span id="countdown">3</span> secondes.</p>
+  <p>Redirection automatique dans <span id="countdown">8</span> secondes.</p>
   <p>Si rien ne se passe, <a href="https://t.me/mini_jessie_bot">cliquez ici</a>.</p>
 
   <!-- Intégration Imgur -->
@@ -53,14 +50,16 @@
   </div>
 
   <script>
-    // Compte à rebours
-    let count = 15;
+    // Compte à rebours 8 secondes
+    let count = 8;
     const el = document.getElementById("countdown");
     const timer = setInterval(() => {
       count--;
       if (count <= 0) {
         clearInterval(timer);
         el.textContent = 0;
+        // Redirection au bout de 8 secondes
+        window.location.href = "https://t.me/mini_jessie_bot";
       } else {
         el.textContent = count;
       }
